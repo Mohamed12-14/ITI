@@ -1,0 +1,20 @@
+﻿@model ITI_Project.Models.Product
+
+@{
+    ViewData["Title"] = "Confirm Delete";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>Price: @Model.Price</p>
+    <p>Category: @Model.Category?.Name</p>
+    <img src="@Url.Content(Model.ImagePath)" alt="Product Image" style="max-width: 200px;" />
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@Model.ProductId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
